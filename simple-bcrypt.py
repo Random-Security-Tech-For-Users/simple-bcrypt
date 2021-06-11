@@ -1,5 +1,7 @@
 
 def bhash(password):
+  if len(password) > 72:
+    raise Exception("Password above max length 72")
   try:
     import bcrypt
     hashed = bcrypt.hashpw(password.encode(),bcrypt.gensalt())

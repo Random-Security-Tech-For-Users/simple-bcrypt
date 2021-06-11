@@ -14,4 +14,8 @@ def bhash(password):
     return bcrypt.checkpw(password.encode(),hashed)
   except:
     return None
+  
+ if __name__ == '__main__':
+  passwd = input("Enter a password to test:")
+  print(bhash(passwd))
  #END

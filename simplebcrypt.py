@@ -1,6 +1,10 @@
 def bhash(password):
+    if type(password) == bytes:
+        password = password.decode()
+    if type(password) != str:
+        raise Exception("Wrong password type: Expected string")
     if len(password) > 72:
-        raise Exception("Password above max length 72")
+        raise Exception("Password above max length of 72")
     try:
         import bcrypt
         hashed = bcrypt.hashpw(password.encode(),bcrypt.gensalt())
@@ -8,6 +12,8 @@ def bhash(password):
     except:
         return None
 def verify(password,hashed):
+    if len(password) > 72:
+        raise Exception("Password is above max length of 72")
     try:
         import bcrypt
         return bcrypt.checkpw(password.encode(),hashed.encode())

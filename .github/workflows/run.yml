@@ -1,0 +1,10 @@
+name: Run
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - run: python simple-bcrypt.py
+      - run: echo Done

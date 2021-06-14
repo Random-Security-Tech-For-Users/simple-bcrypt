@@ -12,6 +12,12 @@ def bhash(password):
     except:
         return None
 def verify(password,hashed):
+    if type(password) == bytes:
+        password = password.decode()
+    if type(hashed) == bytes:
+        hashed = hashed.decode()
+    if type(password) != str or type(hashed) != str:
+        raise Exception("Wrong password type: Expected string")
     if len(password) > 72:
         raise Exception("Password is above max length of 72")
     try:

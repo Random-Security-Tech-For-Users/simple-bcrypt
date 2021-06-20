@@ -1,4 +1,4 @@
-name: Run
+name: Test simple-bcrypt
 on: [push,workflow_dispatch]
 jobs:
   test-bcrypt:

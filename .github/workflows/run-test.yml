@@ -1,0 +1,11 @@
+name: Test simple-bcrypt
+on: [push,workflow_dispatch]
+jobs:
+  test-bcrypt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install bcrypt
+      - run: test.py
+      - run: echo Done

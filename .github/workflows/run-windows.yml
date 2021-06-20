@@ -1,0 +1,11 @@
+name: Test on Windows
+on: [push,workflow_dispatch]
+jobs:
+  test-bcrypt:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: pip install bcrypt
+      - run: echo pass | python simplebcrypt.py
+      - run: echo Done

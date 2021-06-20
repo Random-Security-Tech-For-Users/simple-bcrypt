@@ -1,5 +1,5 @@
 name: Run
-on: [push]
+on: [push,workflow_dispatch]
 jobs:
   test-bcrypt:
     runs-on: ubuntu-latest
